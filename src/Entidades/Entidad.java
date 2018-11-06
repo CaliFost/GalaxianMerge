@@ -48,8 +48,9 @@ public abstract class Entidad {
 	}
 	
 	public void recibirDano(int d) {
-		vida -=d;
-		//Deberia destruirse si la vida es <0S
+		vida-=d;
+		if (vida<0)
+			morir();
 	}
 	
 	public void setVelocidad(int velocidad) {

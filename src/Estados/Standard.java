@@ -1,7 +1,7 @@
 package Estados;
 
 import java.util.Random;
-import Juego.Entidad;
+import Entidades.*;
 
 public class Standard extends State {
 

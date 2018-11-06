@@ -1,23 +1,20 @@
 package Entidades;
 
-import Collider.Colisionador;
-import Disparos.Disparo;
+import java.awt.Point;
+import Estados.*;
 
 public abstract class Nave extends Entidad {
 	
-	protected int dano;
-	protected int velDisparo;
-	protected State estado;
-	
-	
-	public Colisionador getColisionador() {
-		return colisionador;
+	public Nave(Point pos) {
+		super(pos);
 	}
+
+	protected int dano;
+	protected State estado;
 	
 	public int getDano(){
 		return dano;
 	}
-	
 	public void setDano(int d) {
 		dano = d;
 	}
@@ -26,15 +23,11 @@ public abstract class Nave extends Entidad {
 		estado = e;
 	}
 	
-	
-	//No hay clase State
 	public State getEstado() {
 		return estado;
 	}
 	
 	public void disparar() {
-		
 	}
-	
 	
 }

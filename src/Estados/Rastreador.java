@@ -1,6 +1,6 @@
 package Estados;
 
-import Juego.Entidad;
+import Entidades.*;
 
 public class Rastreador extends State {
 
@@ -17,14 +17,12 @@ public class Rastreador extends State {
 		int cordXBuscado = buscado.getPos().x;
 		int cordXSeguidor = seguidor.getPos().x;
 		int cordYSeguidor = seguidor.getPos().y;
-
 		if(cordXSeguidor>cordXBuscado)
 			seguidor.setPos(seguidor.getPos().x-1, seguidor.getPos().y+5);
 		else if(cordXSeguidor<cordXBuscado)
 				seguidor.setPos(seguidor.getPos().x+1, seguidor.getPos().y+5);
 			else
 				seguidor.setPos(seguidor.getPos().x, seguidor.getPos().y+5);
-		
 		if (cordYSeguidor > 500) {
 			seguidor.setPos(seguidor.getPos().x, 0);
 		}
