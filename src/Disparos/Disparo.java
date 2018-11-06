@@ -1,13 +1,7 @@
 package Disparos;
 
 import java.awt.Point;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 import Entidades.Entidad;
-import Mapa.Mapa;
-
 public abstract class Disparo extends Entidad {
 	protected int dano;
 	

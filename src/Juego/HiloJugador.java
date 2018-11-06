@@ -3,11 +3,9 @@ package Juego;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
+import javax.swing.*;
+
+import Entidades.Jugador;
 
 public class HiloJugador extends Thread {
 
@@ -23,12 +21,10 @@ public class HiloJugador extends Thread {
 		this.jugador = j;
 		ejecutar = true;
 		ultTiempoDisparo = System.currentTimeMillis();
-		movimiento = Jugador.STOPDER;
-
+		movimiento = Jugador.STPR;
 		setListener();
 	}
 
-	@Override
 	public void run() {
 		while (ejecutar) {
 
@@ -59,8 +55,8 @@ public class HiloJugador extends Thread {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			if (!(movimiento == Jugador.DERECHA && d == Jugador.STOPIZQ)
-					&& !(movimiento == Jugador.IZQUIERDA && d == Jugador.STOPDER)) {
+			if (!(movimiento == Jugador.RIGHT && d == Jugador.STPL)
+					&& !(movimiento == Jugador.LEFT && d == Jugador.STPR)) {
 				movimiento = d;
 			}
 		}
@@ -83,16 +79,16 @@ public class HiloJugador extends Thread {
 		ActionMap actionMap = jugador.getGrafico().getActionMap();
 
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "mover derecha");
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "mover parar derecha"); // soltó la tecla der
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "mover parar derecha"); 
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "mover izquierda");
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "mover parar izquierda"); // soltó la tecla izq
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "mover parar izquierda"); 
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false), "disparo");
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false), "disparo");
 
-		actionMap.put("mover derecha", new PlayerMovementAction(Jugador.DERECHA));
-		actionMap.put("mover parar derecha", new PlayerMovementAction(Jugador.STOPDER));
-		actionMap.put("mover parar izquierda", new PlayerMovementAction(Jugador.STOPIZQ));
-		actionMap.put("mover izquierda", new PlayerMovementAction(Jugador.IZQUIERDA));
+		actionMap.put("mover derecha", new PlayerMovementAction(Jugador.RIGHT));
+		actionMap.put("mover parar derecha", new PlayerMovementAction(Jugador.STPR));
+		actionMap.put("mover parar izquierda", new PlayerMovementAction(Jugador.STPL));
+		actionMap.put("mover izquierda", new PlayerMovementAction(Jugador.LEFT));
 		actionMap.put("disparo", new DisparoAction());
 	}
 }

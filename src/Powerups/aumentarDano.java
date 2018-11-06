@@ -10,4 +10,7 @@ public class aumentarDano extends Powerup{
 		super(pos);
 	}
 
+	public void actualizar() {		
+	}
+
 }

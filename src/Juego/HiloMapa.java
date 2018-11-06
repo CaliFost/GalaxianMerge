@@ -19,21 +19,21 @@ public class HiloMapa extends Thread {
 		aRecorrer = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 	}
-	
+
 	public void detenerThread() {
 		ejecutar = false;
 	}
-	
+
 	private void actualizar() {
 		for (Entidad e : aRecorrer) {
 			e.actualizar();
 			if (!e.estaVivo()) {
 				aEliminar.add(e);
-				grafica.getJuego().getJugador().sumarPuntaje(e.getPuntaje());
+				grafica.getJuego().getJugador().setPuntaje(e.getPuntaje());
 				grafica.cambiarPuntaje();
 			}
 		}
-		grafica.actualizarGraficamente();
+		grafica.repaint();
 	}
 
 	public void insertarEnLista(Entidad e) {
@@ -46,7 +46,7 @@ public class HiloMapa extends Thread {
 	private void insertarARecorrer() {
 		for (Entidad e: aInsertar) {
 			if (e != null) {
-				grafica.agregarGraficamente(e);
+				grafica.agregarEntidad(e);
 				aRecorrer.add(e);
 			}
 		}
@@ -57,7 +57,7 @@ public class HiloMapa extends Thread {
 	private void removerEliminados() {
 		for (Entidad entidadRemovida: aEliminar) {
 			if(entidadRemovida != null) {
-				grafica.eliminarGraficamente(entidadRemovida);
+				grafica.removerEntidad(entidadRemovida);
 				aRecorrer.remove(entidadRemovida);
 			}
 		}
@@ -75,22 +75,10 @@ public class HiloMapa extends Thread {
 	}
 
 	private boolean hayColision(Entidad a, Entidad b) {
-		boolean retorno;
 		if ((Math.abs(a.getPos().x - b.getPos().x) < 60) && (Math.abs(a.getPos().y - b.getPos().y) < 60))
-			retorno = true;
+			return true;
 		else
-			retorno = false;
-		return retorno;
-	}
-
-	/**
-	 * Lo puse para controlar el nivel
-	 */
-	private void controlarNivel() {
-		if (aRecorrer.size() == 1) {
-			detenerThread();
-			grafica.gameWin();
-		}
+			return false;
 	}
 
 	public void run() {
@@ -98,9 +86,9 @@ public class HiloMapa extends Thread {
 		double fps = 30.0; ////////////////// FPS
 		double ns = 1000000000 / fps;
 		double delta = 0;
-		
+
 		this.ejecutar = true;
-	
+
 		while (ejecutar) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
@@ -110,7 +98,6 @@ public class HiloMapa extends Thread {
 				actualizar();
 				controlarColisiones();
 				removerEliminados();
-				controlarNivel();
 				delta--;
 			}
 			try {

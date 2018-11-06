@@ -8,14 +8,6 @@ import javax.swing.JLabel;
 
 import Entidades.Entidad;
 import Juego.Logica;
-import src.Nivel.Bomba;
-import src.Nivel.Debil;
-import src.Nivel.Distraido;
-import src.Nivel.FabricaDisparoEnemigo;
-import src.Nivel.Kamikaze;
-import src.Nivel.Perdedor;
-import src.Nivel.PrototipoEnemigo;
-import src.Nivel.ThreadNivel;
 
 
 public class Mapa {
@@ -43,8 +35,8 @@ public class Mapa {
 		return fondo;
 	}*/
 	
-	protected void generarPrototiposEnemigos() {
-		Point inicial = new Point(0, 0);
+	protected void generarEnemigos() {
+	/*	Point inicial = new Point(0, 0);
 		PrototipoEnemigo bomba = new Bomba(inicial, new FabricaDisparoEnemigo(juego),juego);
 		prototiposEnemigos.add(bomba);
 		PrototipoEnemigo perdedor = new Perdedor(inicial, new FabricaDisparoEnemigo(juego), juego);
@@ -54,7 +46,7 @@ public class Mapa {
 		PrototipoEnemigo distraido = new Distraido(inicial, new FabricaDisparoEnemigo(juego), juego);
 		prototiposEnemigos.add(distraido);
 		PrototipoEnemigo kamikaze = new Kamikaze(inicial, new FabricaDisparoEnemigo(juego), juego);
-		prototiposEnemigos.add(kamikaze);
+		prototiposEnemigos.add(kamikaze);*/
 	}
 		
 	public void agregarEntidadEnLista(Entidad e) {

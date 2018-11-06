@@ -10,4 +10,7 @@ public class agregarCampo extends Powerup {
 		super(pos);
 	}
 
+	public void actualizar() {		
+	}
+
 }
