@@ -2,12 +2,9 @@ package Entidades;
 import java.awt.Point;
 import Estados.*;
 import Juego.Logica;
-
-import javax.swing.Icon;
 import javax.swing.JLabel;
 
 import Collider.*;
-import Mapa.*;
 
 public abstract class Entidad {
 	protected final int ANCHO_SPRITE = 80;
@@ -104,6 +101,8 @@ public abstract class Entidad {
 	public void moverme() {
 		comportamiento.activar();
 	}
-	
+
+	public abstract void actualizar();
+
 	public void morir() {}
 }

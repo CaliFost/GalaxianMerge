@@ -7,25 +7,19 @@ import Disparos.Disparo;
 import Entidades.*;
 import GUI.GUI;
 import Mapa.Mapa;
+import src.Juego.Grafica;
+import src.Juego.Jugador;
 
 public class Logica {
 
-	//ALTO Y ANCHO DEL MAPA, Y DE CADA CELDA DE LA GRILLA
-	public static final int ANCHO = 1360;
-	public static final int ALTO = 720;
-	public static final int ANCHOC = 136;
-	public static final int ALTOC = 90; //VALORES TEMPORALES, o no / TODO
-
-	protected Jugador j;
-	protected Mapa mapa;
-	protected LinkedList<Entidad> entidades;
+	private Jugador j;
+	
 	protected GUI gui;
-	protected int puntaje;
+	//protected int puntaje;
 
 	public Logica (GUI gui) {
 		this.gui = gui;
-		entidades = new LinkedList<Entidad>();
-		puntaje = 0;
+		//puntaje = 0;
 	}	
 
 	public void mover(int dir){		

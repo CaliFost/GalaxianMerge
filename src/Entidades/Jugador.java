@@ -49,4 +49,7 @@ public class Jugador extends Nave {
 	public void morir() {
 		l.perder();
 	}
+
+	public void actualizar() {
+	}
 }
