@@ -14,7 +14,7 @@ public class Mapa {
 	public static final int ALTO = 720;
 	public static final int ANCHOC = 136;
 	public static final int ALTOC = 90;
-	protected static final int ENEMIGOSXFILA = 6;
+	//protected static final int ENEMIGOSXFILA = 6;
 	private Logica juego;
 	protected int filas;
 	//private int ancho, alto;
@@ -38,8 +38,8 @@ public class Mapa {
 	
 	protected void generarEnemigos() {
 		Point inicial = new Point(0, 0);
-		Enemigo en = new EnemigoBasico(inicial);
-		enemigos.add(en);
+		//Enemigo en = new EnemigoBasico(inicial);
+		//enemigos.add(en);
 	}
 		
 	public void agregarEntidadEnLista(Entidad e) {
