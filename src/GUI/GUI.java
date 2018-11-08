@@ -24,6 +24,12 @@ public class GUI {
 				try {
 					ventana = new JFrame();
 					GUI grafico = new GUI();
+					Icon background = new ImageIcon(this.getClass().getResource("/media/mapa.png"));
+					JLabel contentPane = new JLabel();
+					contentPane.setIcon(background);
+					contentPane.setLayout(new BorderLayout());
+					ventana.setContentPane(contentPane);
+					ventana.pack();
 					ventana.setLayout(new FlowLayout());
 					panelJuego = new JPanel();
 					juego = new Logica(grafico);
@@ -38,12 +44,6 @@ public class GUI {
 			        panelJuego.add(puntaje);
 					ventana.pack();
 					ventana.setVisible(true);
-					Icon background = new ImageIcon(this.getClass().getResource("/media/mapa.png"));
-					JLabel contentPane = new JLabel();
-					contentPane.setIcon(background);
-					contentPane.setLayout(new BorderLayout());
-					ventana.setContentPane(contentPane);
-					ventana.pack();
 					ventana.repaint();
 				} catch (Exception e) {	e.printStackTrace();}
 			}
