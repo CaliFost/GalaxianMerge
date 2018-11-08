@@ -29,7 +29,8 @@ public class GUI {
 					juego = new Logica(grafico);
 					panelJuego.setPreferredSize(new Dimension(1024, 768));
 					panelJuego.setLayout(null);
-					panelJuego.setBackground(Color.BLACK);
+					//panelJuego.set(new ImageIcon(this.getClass().getResource("/juego/mapa.png")));
+					panelJuego.add(new ImageIcon(this.getClass().getResource("/juego/mapa.png")));
 					//Habria que poner nuestro background aca
 					ventana.add(panelJuego);
 					ventana.setTitle("Galaxian");
