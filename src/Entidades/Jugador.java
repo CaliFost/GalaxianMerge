@@ -17,6 +17,7 @@ public class Jugador extends Nave {
 		vida=300;
 		dano=10;
 		velocidad = 15;
+		puntaje=0;
 		colisionador = new ColisionadorJugador(this);
 	}
 	

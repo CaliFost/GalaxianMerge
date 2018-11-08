@@ -16,7 +16,7 @@ public class Logica {
 		this.gui = gui;
 		j = new Jugador(new Point(1024 / 2, 768 - 80), this);
 		nivel = new Mapa(this);
-		//nivel.iniciarNivel(gui);
+		nivel.iniciarNivel(gui);
 	}	
 
 	public Jugador getJugador() {

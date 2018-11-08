@@ -26,6 +26,7 @@ public class Mapa {
 	
 	public Mapa(Logica juego){
 		enemigos = new LinkedList<Entidad>();
+		filas = 2;
 		this.juego = juego;
 		generarEnemigos();
 	}
@@ -54,8 +55,8 @@ public class Mapa {
 		playerThread = new HiloJugador(juego.getJugador());
 		mapThread = new HiloMapa(this, g);
 		agregarEntidadEnLista(juego.getJugador());
-		generarEnemigos();
-		generarObstaculos();
+	//	generarEnemigos();
+	//	generarObstaculos();
 		mapThread.start();
 		playerThread.start();
 	}

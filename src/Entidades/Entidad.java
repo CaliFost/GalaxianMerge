@@ -72,7 +72,7 @@ public abstract class Entidad {
 	
 	public JLabel getGrafico() {
 		if (grafico == null) {
-			//grafico = new JLabel();
+			grafico = new JLabel();
 			grafico.setBounds(this.pos.x, this.pos.y, ANCHO_SPRITE, ALTO_SPRITE);
 		}
 		return grafico;

@@ -32,7 +32,7 @@ public class HiloMapa extends Thread {
 			if (!e.estaVivo()) {
 				aEliminar.add(e);
 				grafica.getJuego().getJugador().setPuntaje(e.getPuntaje());
-				grafica.cambiarPuntaje();
+				//grafica.cambiarPuntaje();
 			}
 		}
 		grafica.repaint();
@@ -46,6 +46,9 @@ public class HiloMapa extends Thread {
 	 * Inserta logica y graficamente la entidad
 	 */
 	private void insertarARecorrer() {
+
+
+		System.out.println("Agregue entidad");
 		for (Entidad e: aInsertar) {
 			if (e != null) {
 				grafica.agregarEntidad(e);
@@ -84,7 +87,7 @@ public class HiloMapa extends Thread {
 	}
 
 	public void run() {
-		double delta = 0;
+		double delta = 1;
 		this.ejecutar = true;
 		while (ejecutar) {
 			while (delta >= 1) {
