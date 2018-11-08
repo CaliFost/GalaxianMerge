@@ -30,7 +30,7 @@ public class GUI {
 					panelJuego.setPreferredSize(new Dimension(1024, 768));
 					panelJuego.setLayout(null);
 					panelJuego.setBackground(Color.BLACK);
-					//Habria que poner nuestro background aca
+					//panelJuego.setForeground(new ImageIcon(this.getClass().getResource("/media/mapa.png")));
 					ventana.add(panelJuego);
 					ventana.setTitle("Galaxian");
 					ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -38,6 +38,13 @@ public class GUI {
 			        panelJuego.add(puntaje);
 					ventana.pack();
 					ventana.setVisible(true);
+					Icon background = new ImageIcon(this.getClass().getResource("/media/mapa.png"));
+					JLabel contentPane = new JLabel();
+					contentPane.setIcon(background);
+					contentPane.setLayout(new BorderLayout());
+					ventana.setContentPane(contentPane);
+					ventana.pack();
+					ventana.repaint();
 				} catch (Exception e) {	e.printStackTrace();}
 			}
 		});
@@ -53,7 +60,7 @@ public class GUI {
 		frame.getContentPane().setLayout(null);
 		JPanel panelPuntos = new JPanel();
 		panelPuntos.setBounds(0, 720, 1360, 48);
-		frame.getContentPane().add(panelPuntos);
+
 		puntaje = new JLabel("0");
 		puntaje.setFont(new Font("Serif", Font.PLAIN, 24));
 		puntaje.setText("0");
