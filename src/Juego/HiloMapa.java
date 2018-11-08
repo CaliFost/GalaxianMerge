@@ -7,14 +7,16 @@ import GUI.GUI;
 
 public class HiloMapa extends Thread {
 	private GUI grafica;
+	private Mapa nivel;
 	private LinkedList<Entidad> aInsertar;
 	private LinkedList<Entidad> aRecorrer;
 	private LinkedList<Entidad> aEliminar;
 
 	private volatile boolean ejecutar;
 
-	public HiloMapa(GUI grafica) {
+	public HiloMapa(Mapa nivel, GUI grafica) {
 		this.grafica = grafica;
+		this.nivel=nivel;
 		aInsertar = new LinkedList<Entidad>();
 		aRecorrer = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
@@ -82,17 +84,9 @@ public class HiloMapa extends Thread {
 	}
 
 	public void run() {
-		long lastTime = System.nanoTime();
-		double fps = 30.0; ////////////////// FPS
-		double ns = 1000000000 / fps;
 		double delta = 0;
-
 		this.ejecutar = true;
-
 		while (ejecutar) {
-			long now = System.nanoTime();
-			delta += (now - lastTime) / ns;
-			lastTime = now;
 			while (delta >= 1) {
 				insertarARecorrer();
 				actualizar();

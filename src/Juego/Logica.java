@@ -1,7 +1,5 @@
 package Juego;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-import java.util.LinkedList;
 
 import Disparos.Disparo;
 import Disparos.DisparoJugador;
@@ -17,6 +15,7 @@ public class Logica {
 	public Logica (GUI gui) {
 		this.gui = gui;
 		j = new Jugador(new Point(1024 / 2, 768 - 80), this);
+		nivel.iniciarNivel(gui);
 	}	
 
 	public Jugador getJugador() {
