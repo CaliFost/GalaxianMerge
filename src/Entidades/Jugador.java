@@ -12,11 +12,12 @@ public class Jugador extends Nave {
 
 	public Jugador(Point pos, Logica l) {
 		super(pos);
-		grafico = new JLabel(new ImageIcon(this.getClass().getResource("/Juego/nave_azul.PNG")));
+		grafico = new JLabel(new ImageIcon(this.getClass().getResource("/media/nave_azul.PNG")));
 		this.l = l;
 		vida=300;
 		dano=10;
 		velocidad = 15;
+		puntaje=0;
 		colisionador = new ColisionadorJugador(this);
 	}
 	
